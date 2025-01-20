@@ -1,0 +1,20 @@
+version: '3.8'
+
+volumes:
+  mysql_data:
+    driver: local
+
+services:
+  mongo:
+    container_name: mysql_db
+    image: mysql
+    restart: always
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: rexample
+      MYSQL_DATABASE: portfolio
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: example
